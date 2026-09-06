@@ -9,6 +9,7 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 3. Go to **Course Admin -> Import/Export/Copy Components**.
 4. Choose **Import Components** and upload `D2L_UDL_StarterShell_CSC1060.zip`.
 5. Review imported content before copying or rebuilding anything in a live course.
+6. The original D2L export ZIP and syllabus PDF stay preserved separately at the repository root; they are not bundled into this test/import archive.
 
 ### Packaging requirement for rebuilds
 
@@ -31,6 +32,7 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 The generated `D2L_UDL_StarterShell_CSC1060.zip` should contain these files at the archive root:
 
 - `imsmanifest.xml`
+- `README_IMPORT.md`
 - `start-here.html`
 - `udl-blueprint.html`
 - `accessibility-checklist.html`
