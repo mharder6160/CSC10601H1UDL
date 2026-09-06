@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Module: Java Foundations</title>
+</head>
+<body>
+  <main>
+    <h1>Sample Module: Java Foundations</h1>
+    <ul>
+      <li><strong>Topics:</strong> Program structure, variables, data types, input/output</li>
+      <li><strong>Estimated Time:</strong> 6-8 hours</li>
+    </ul>
+
+    <h2>Overview</h2>
+    <p>This module introduces core Java building blocks. Students write simple programs that take input, perform calculations, and print formatted output.</p>
+
+    <h2>Learning Outcomes</h2>
+    <ol>
+      <li>Identify required structure of a Java class with <code>main</code>.</li>
+      <li>Use appropriate primitive data types and variables.</li>
+      <li>Accept keyboard input and produce clear output.</li>
+      <li>Trace simple expressions and explain results.</li>
+    </ol>
+
+    <h2>Mini-Lesson Code Example</h2>
+    <p><strong>Code sample: IntroIO.java</strong></p>
+<pre><code>import java.util.Scanner;
+
+public class IntroIO {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = input.nextInt();
+
+        System.out.println("Welcome, " + name + ". Next year you will be " + (age + 1) + ".");
+
+        input.close();
+    }
+}
+</code></pre>
+
+    <h2>Worked Example</h2>
+    <p><strong>Task:</strong> Read student name and two quiz scores, then print average.</p>
+    <h3>Pseudocode</h3>
+    <ol>
+      <li>Start program</li>
+      <li>Ask for first name</li>
+      <li>Ask for quiz1 and quiz2</li>
+      <li>Compute average as <code>(quiz1 + quiz2) / 2.0</code></li>
+      <li>Print name and average</li>
+      <li>End program</li>
+    </ol>
+    <h3>Java Solution</h3>
+    <p><strong>Code sample: QuizAverage.java</strong></p>
+<pre><code>import java.util.Scanner;
+
+public class QuizAverage {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("First name: ");
+        String firstName = in.nextLine();
+
+        System.out.print("Quiz 1 score: ");
+        double quiz1 = in.nextDouble();
+
+        System.out.print("Quiz 2 score: ");
+        double quiz2 = in.nextDouble();
+
+        double average = (quiz1 + quiz2) / 2.0;
+
+        System.out.printf("%s, your average is %.2f%n", firstName, average);
+
+        in.close();
+    }
+}
+</code></pre>
+
+    <h3>Trace Table (text)</h3>
+    <p>This trace table shows how variable values change step-by-step as input is processed and the average is computed.</p>
+    <p><strong>Essential result:</strong> after both scores are read, the computed average is 88.00 for the sample input.</p>
+    <table>
+      <caption>Sample trace with input Mia, 84, 92</caption>
+      <thead>
+        <tr><th scope="col">Step</th><th scope="col">quiz1</th><th scope="col">quiz2</th><th scope="col">average</th><th scope="col">Output note</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">After reading quiz1</th><td>84.0</td><td>not yet set</td><td>not yet set</td><td>no final output yet</td></tr>
+        <tr><th scope="row">After reading quiz2</th><td>84.0</td><td>92.0</td><td>not yet set</td><td>no final output yet</td></tr>
+        <tr><th scope="row">After compute</th><td>84.0</td><td>92.0</td><td>88.0</td><td>prints: Mia, your average is 88.00</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Quick summary:</strong> quiz values are collected first, then the average is computed and displayed as 88.00.</p>
+
+    <h2>Guided Practice</h2>
+    <ul>
+      <li>Create <code>RectangleArea.java</code> using width/height input and formatted output.</li>
+      <li>Complete a TODO-based starter file for Celsius-to-Fahrenheit conversion.</li>
+    </ul>
+
+    <h2>Independent Practice</h2>
+    <ul>
+      <li><code>CircleMetrics.java</code></li>
+      <li><code>PayEstimate.java</code></li>
+    </ul>
+
+    <h2>Knowledge Check (Low Stakes)</h2>
+    <ol>
+      <li>Which method starts a Java application?</li>
+      <li>Which data type is best for GPA?</li>
+      <li>What is the difference between <code>print</code> and <code>println</code>?</li>
+      <li>Given <code>int x = 7; int y = 2;</code>, what is <code>x / y</code>?</li>
+      <li>Why is <code>(x + y) / 2.0</code> often used instead of <code>(x + y) / 2</code> for averages?</li>
+    </ol>
+
+    <h2>Programming Assignment</h2>
+    <p><strong>Note:</strong> <code>Math.max(a, b)</code> returns the larger value; this lets you prevent negative remaining-credit values.</p>
+    <p><strong>StudentSummary.java</strong>: read name, completed credits, GPA, compute remaining credits to 60 total using <code>Math.max(0, 60 - completed)</code>, and print a formatted summary. Remaining credits should never display as a negative value.</p>
+    <p><strong>Required submission:</strong> Java file + test log with at least 3 test cases (include one edge case).</p>
+
+    <h2>Rubric Snapshot (20 points)</h2>
+    <ul>
+      <li>Correctness: 8</li>
+      <li>Syntax/type use: 4</li>
+      <li>Input/output clarity: 4</li>
+      <li>Testing evidence: 4</li>
+    </ul>
+
+    <h2>Accessibility Notes</h2>
+    <ul>
+      <li>Code is provided as selectable text.</li>
+      <li>Tables include header row and caption.</li>
+      <li>If a video walkthrough is added, include captions and transcript.</li>
+    </ul>
+  </main>
+</body>
+</html>
