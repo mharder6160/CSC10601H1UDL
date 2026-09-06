@@ -22,7 +22,7 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 ### Rebuild and validation steps
 
 1. From the repository root, rebuild the archive from the source directory itself:
-   - `rm -f D2L_UDL_StarterShell_CSC1060.zip && (cd d2l-import-package && zip -X -q ../D2L_UDL_StarterShell_CSC1060.zip imsmanifest.xml start-here.html udl-blueprint.html accessibility-checklist.html weekly-module-template.html sample-module-01-early-java.html assessment-feedback-guidance.html suggested-course-map.html)`
+   - `rm -f D2L_UDL_StarterShell_CSC1060.zip && (cd d2l-import-package && zip -X -q ../D2L_UDL_StarterShell_CSC1060.zip imsmanifest.xml *.html)`
 2. Confirm the ZIP is non-empty.
 3. Confirm `imsmanifest.xml` is visible at the ZIP root.
 4. Confirm every manifest `href` and `file` path exists in `d2l-import-package/` and in the rebuilt ZIP.
@@ -41,18 +41,12 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 - Assessment and feedback guidance
 - Suggested course map
 
-### Expected archive-root files
+### Expected archive-root contents
 
-The generated `D2L_UDL_StarterShell_CSC1060.zip` should contain these files at the archive root:
+The generated `D2L_UDL_StarterShell_CSC1060.zip` should contain:
 
 - `imsmanifest.xml`
-- `start-here.html`
-- `udl-blueprint.html`
-- `accessibility-checklist.html`
-- `weekly-module-template.html`
-- `sample-module-01-early-java.html`
-- `assessment-feedback-guidance.html`
-- `suggested-course-map.html`
+- the self-contained HTML content pages referenced by `imsmanifest.xml`
 
 ## Instructor confirmation placeholders
 
