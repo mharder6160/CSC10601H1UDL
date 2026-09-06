@@ -2,6 +2,8 @@
 
 This folder contains a **conservative IMS Content Packaging test/import package** for CSC1060 UDL starter-shell content.
 
+`README_IMPORT.md` is part of the repository source folder for packaging guidance. The generated import ZIP contains the manifest plus the HTML content pages used for import.
+
 ## Recommended import workflow
 
 1. Download the root repository file `D2L_UDL_StarterShell_CSC1060.zip`.
@@ -32,7 +34,6 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 The generated `D2L_UDL_StarterShell_CSC1060.zip` should contain these files at the archive root:
 
 - `imsmanifest.xml`
-- `README_IMPORT.md`
 - `start-here.html`
 - `udl-blueprint.html`
 - `accessibility-checklist.html`
