@@ -22,7 +22,33 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 ### Rebuild and validation steps
 
 1. From the repository root, rebuild the archive from the source directory itself:
-   - `rm -f D2L_UDL_StarterShell_CSC1060.zip && (cd d2l-import-package && zip -X -q ../D2L_UDL_StarterShell_CSC1060.zip imsmanifest.xml *.html)`
+   - Run a manifest-driven rebuild so the ZIP always includes `imsmanifest.xml` and every manifest-referenced file:
+     ```bash
+     rm -f D2L_UDL_StarterShell_CSC1060.zip
+     python - <<'PY'
+     from pathlib import Path
+     from zipfile import ZIP_DEFLATED, ZipFile
+     import xml.etree.ElementTree as ET
+     
+     repo = Path('.')
+     pkg = repo / 'd2l-import-package'
+     ns = {'imscp': 'http://www.imsglobal.org/xsd/imscp_v1p1'}
+     root = ET.parse(pkg / 'imsmanifest.xml').getroot()
+     
+     files = ['imsmanifest.xml']
+     for resource in root.findall('.//imscp:resource', ns):
+         href = resource.attrib.get('href')
+         if href:
+             files.append(href)
+         for file_node in resource.findall('imscp:file', ns):
+             files.append(file_node.attrib['href'])
+     
+     files = list(dict.fromkeys(files))
+     with ZipFile(repo / 'D2L_UDL_StarterShell_CSC1060.zip', 'w', compression=ZIP_DEFLATED) as archive:
+         for relative_path in files:
+             archive.write(pkg / relative_path, arcname=relative_path)
+     PY
+     ```
    - `README_IMPORT.md` is intentionally excluded from the import ZIP and remains source-only guidance in `d2l-import-package/`.
 2. Confirm the ZIP is non-empty.
 3. Confirm `imsmanifest.xml` is visible at the ZIP root.
