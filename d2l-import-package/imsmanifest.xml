@@ -43,9 +43,6 @@
     </organization>
   </organizations>
   <resources>
-    <resource identifier="RES-MANIFEST-DESCRIPTOR" type="webcontent" href="imsmanifest.xml">
-      <file href="imsmanifest.xml"/>
-    </resource>
     <resource identifier="RES-START-HERE" type="webcontent" href="start-here.html">
       <file href="start-here.html"/>
     </resource>
