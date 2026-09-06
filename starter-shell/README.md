@@ -4,10 +4,12 @@ This package provides instructor-ready starter content for **CSC1060 / Computer 
 
 ## Source materials preserved
 
-Original source files remain unchanged at repository root:
+Original source artifacts remain unchanged at repository root:
 
-- `D2LExport_662798_S_PPCC_CSC10601H1_202720_20269657.zip`
-- `Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java.pdf`
+- D2L Brightspace export ZIP (`*.zip`)
+- Course syllabus PDF (`*.pdf`)
+
+In this repository version, the specific source filenames can be found directly in the root directory.
 
 ## What is source-derived vs newly authored
 
@@ -57,6 +59,22 @@ All files under `starter-shell/` are newly authored as UDL starter-shell materia
 4. Attach existing course files/quizzes/projects from your D2L shell where indicated.
 5. Apply this structure consistently across all weeks for predictable navigation.
 
+### Source-of-truth guidance for maintenance
+
+- Canonical source: Markdown files under `starter-shell/`.
+- Generated companion format: HTML files under `starter-shell/d2l-html/`.
+- Do **not** directly edit HTML except for final accessibility touch-ups after regeneration.
+- HTML pages are intentionally simplified D2L-ready companions; maintain equivalent section intent with Markdown while allowing lighter presentation markup.
+- Some HTML pages intentionally condense wording for paste-ready D2L delivery; use Markdown files as the complete instructional source for full detail.
+
+Republish process (manual, no build tooling required):
+
+1. Update content in the relevant Markdown source file.
+2. Regenerate companion HTML with a converter (example command): `pandoc INPUT.md -o OUTPUT.html`.
+3. Apply D2L-specific cleanup as needed (simple semantic headings/lists, no scripts).
+4. Compare Markdown and HTML section headings to verify they still match.
+5. Re-check links and placeholders (`[INSTRUCTOR CONFIRM]`) in both versions before upload.
+
 ## Alignment to existing course shell
 
 - Welcome content aligns to your existing **Start Here** concept.
@@ -73,5 +91,5 @@ All files under `starter-shell/` are newly authored as UDL starter-shell materia
 ## Limitations
 
 - This package does **not** import content into D2L automatically.
-- Exact due dates, grading weights implementation details, attendance penalties, and AI policy option selection must be finalized by instructor/institution.
+- Exact due dates, grading weights, implementation details, attendance penalties, and AI policy option selection must be finalized by instructor/institution.
 - Existing attached assignment documents/rubrics in the D2L export were not rewritten verbatim; this package provides UDL-ready structure and sample content to integrate with those assets.

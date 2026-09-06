@@ -132,8 +132,8 @@ Given input: `Mia`, `84`, `92`
 
 | Step | quiz1 | quiz2 | average | Output note |
 |---|---:|---:|---:|---|
-| After reading quiz1 | 84.0 | — | — | no final output yet |
-| After reading quiz2 | 84.0 | 92.0 | — | no final output yet |
+| After reading quiz1 | 84.0 | not yet set | not yet set | no final output yet |
+| After reading quiz2 | 84.0 | 92.0 | not yet set | no final output yet |
 | After compute | 84.0 | 92.0 | 88.0 | prints: `Mia, your average is 88.00` |
 
 ## 7) Guided practice
@@ -212,8 +212,10 @@ Write a Java program named `StudentSummary.java` that:
 1. Prompts for student name (`String`)
 2. Prompts for number of completed credits (`int`)
 3. Prompts for current GPA (`double`)
-4. Computes estimated remaining credits to `60` total: `remaining = 60 - completed`
+4. Computes estimated remaining credits to `60` total using `remaining = Math.max(0, 60 - completed)` so remaining credits never display as negative
 5. Prints a clear summary with labels and formatted GPA (2 decimals)
+
+For this assignment, use `Math.max(0, 60 - completed)` so remaining credits never display as a negative value.
 
 ### Starter-code expectations
 
@@ -236,6 +238,7 @@ Use test inputs covering:
 - normal case (e.g., completed `24`, GPA `3.10`)
 - near-completion case (e.g., completed `59`)
 - boundary/edge consideration (e.g., completed `60`)
+- over-completion case (e.g., completed `72`) and confirm remaining credits prints as `0`
 
 Expected checks:
 
