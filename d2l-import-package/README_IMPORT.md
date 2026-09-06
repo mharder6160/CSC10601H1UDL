@@ -54,9 +54,10 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 3. Confirm `imsmanifest.xml` is visible at the ZIP root.
 4. Confirm every manifest `href` and `file` path exists in `d2l-import-package/` and in the rebuilt ZIP.
 5. If any HTML page references new images, CSS, PDFs, or other linked files, add those files to the ZIP and add matching `<file>` entries under the correct manifest resource before release.
-6. Confirm `imsmanifest.xml` parses as XML.
-7. Confirm all HTML files have balanced tags and matched `h1`, `h2`, and `h3` elements.
-8. Confirm no confidential data is present before publishing or sharing the archive.
+6. Confirm every intended learner-facing page has both a `<resource>` entry and an `<item>` in `<organizations>`.
+7. Confirm `imsmanifest.xml` parses as XML.
+8. Confirm all HTML files have balanced tags and matched `h1`, `h2`, and `h3` elements.
+9. Confirm no confidential data is present before publishing or sharing the archive.
 
 ## Expected imported contents
 
