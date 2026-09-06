@@ -15,7 +15,7 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 
 ### Packaging requirement for rebuilds
 
-- The ZIP must be created from **inside** `d2l-import-package/`.
+- Launch the rebuild from the repository root, but package files from `d2l-import-package/` so they are written to the **archive root**.
 - `imsmanifest.xml` and the HTML content files must appear at the **archive root**.
 - Do **not** upload or zip a parent folder so that files end up nested under `d2l-import-package/`.
 
