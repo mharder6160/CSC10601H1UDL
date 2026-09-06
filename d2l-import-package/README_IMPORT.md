@@ -23,6 +23,7 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 
 1. From the repository root, rebuild the archive from the source directory itself:
    - `rm -f D2L_UDL_StarterShell_CSC1060.zip && (cd d2l-import-package && zip -X -q ../D2L_UDL_StarterShell_CSC1060.zip imsmanifest.xml *.html)`
+   - `README_IMPORT.md` is intentionally excluded from the import ZIP and remains source-only guidance in `d2l-import-package/`.
 2. Confirm the ZIP is non-empty.
 3. Confirm `imsmanifest.xml` is visible at the ZIP root.
 4. Confirm every manifest `href` and `file` path exists in `d2l-import-package/` and in the rebuilt ZIP.
