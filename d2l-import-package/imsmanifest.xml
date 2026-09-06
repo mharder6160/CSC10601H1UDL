@@ -15,23 +15,32 @@
       <item identifier="ITEM-START-HERE" identifierref="RES-START-HERE">
         <title>Start Here</title>
       </item>
-      <item identifier="ITEM-BLUEPRINT" identifierref="RES-BLUEPRINT">
-        <title>UDL Blueprint</title>
+      <item identifier="ITEM-DESIGN-RESOURCES">
+        <title>Course Design and Support Resources</title>
+        <item identifier="ITEM-BLUEPRINT" identifierref="RES-BLUEPRINT">
+          <title>UDL Blueprint</title>
+        </item>
+        <item identifier="ITEM-CHECKLIST" identifierref="RES-CHECKLIST">
+          <title>Accessibility Checklist</title>
+        </item>
+        <item identifier="ITEM-ASSESSMENT" identifierref="RES-ASSESSMENT">
+          <title>Assessment and Feedback Guidance</title>
+        </item>
+        <item identifier="ITEM-COURSE-MAP" identifierref="RES-COURSE-MAP">
+          <title>Suggested Course Map</title>
+        </item>
       </item>
-      <item identifier="ITEM-CHECKLIST" identifierref="RES-CHECKLIST">
-        <title>Accessibility Checklist</title>
+      <item identifier="ITEM-MODULE-RESOURCES">
+        <title>Reusable Module Resources</title>
+        <item identifier="ITEM-WEEKLY-TEMPLATE" identifierref="RES-WEEKLY-TEMPLATE">
+          <title>Weekly Module Template</title>
+        </item>
       </item>
-      <item identifier="ITEM-WEEKLY-TEMPLATE" identifierref="RES-WEEKLY-TEMPLATE">
-        <title>Weekly Module Template</title>
-      </item>
-      <item identifier="ITEM-SAMPLE-MODULE" identifierref="RES-SAMPLE-MODULE">
-        <title>Sample Module 1: Early Java Foundations</title>
-      </item>
-      <item identifier="ITEM-ASSESSMENT" identifierref="RES-ASSESSMENT">
-        <title>Assessment and Feedback Guidance</title>
-      </item>
-      <item identifier="ITEM-COURSE-MAP" identifierref="RES-COURSE-MAP">
-        <title>Suggested Course Map</title>
+      <item identifier="ITEM-SAMPLE-CONTENT">
+        <title>Sample Course Content</title>
+        <item identifier="ITEM-SAMPLE-MODULE" identifierref="RES-SAMPLE-MODULE">
+          <title>Sample Module 1: Early Java Foundations</title>
+        </item>
       </item>
     </organization>
   </organizations>
