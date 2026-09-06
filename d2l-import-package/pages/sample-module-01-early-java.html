@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample Module 1: Early Java Foundations</title>
+</head>
+<body>
+  <header>
+    <h1>Sample Module 1: Early Java Foundations</h1>
+    <nav aria-label="UDL starter shell pages">
+      <ul>
+        <li><a href="start-here-welcome.html">Start Here: Welcome and Course Navigation</a></li><li><a href="udl-course-blueprint.html">UDL Course Design: Blueprint</a></li><li><a href="accessibility-quality-checklist.html">UDL Course Design: Accessibility and Quality Checklist</a></li><li><a href="weekly-module-template.html">Weekly Module Template Resource</a></li><li><a href="sample-module-01-early-java.html">Sample Module 1: Early Java Foundations</a></li><li><a href="assessment-feedback-guidance.html">Assessment and Feedback Guidance</a></li><li><a href="suggested-course-map.html">Suggested Course Map</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Sample Module: Java Foundations (Program Structure, Variables, Data Types, Input/Output)</h1>
+<p><strong>Suggested placement:</strong> Early term (after course orientation; aligns with introductory Java sequence)<br />
+<strong>Estimated Time:</strong> 6-8 hours</p>
+<h2>1) Overview</h2>
+<p>This module introduces the structure of a Java program and core building blocks: variables, data types, and console input/output. You will write and test simple programs that read user input, perform calculations, and print formatted results.</p>
+<h2>2) Learning Outcomes</h2>
+<p>By the end of this module, students will be able to:</p>
+<ol>
+<li>Identify the required structure of a basic Java class with a <code>main</code> method.</li>
+<li>Declare and initialize variables using appropriate primitive data types.</li>
+<li>Accept keyboard input and produce clear output.</li>
+<li>Trace simple expressions and explain resulting values.</li>
+</ol>
+<h2>3) Materials</h2>
+<ul>
+<li>Assigned reading: Intro Java chapter sections on basic syntax, variables, and input/output [INSTRUCTOR CONFIRM chapter/sections]</li>
+<li>Existing course slide deck for introductory programming [INSTRUCTOR CONFIRM exact file]</li>
+<li>IDE/JDK setup from Start Here module</li>
+</ul>
+<h2>4) Vocabulary</h2>
+<ul>
+<li><strong>Class</strong>: A blueprint for creating objects; also a container for methods in introductory programs.</li>
+<li><strong>Method</strong>: A block of code that performs a task.</li>
+<li><strong><code>main</code> method</strong>: The entry point where Java starts program execution.</li>
+<li><strong>Variable</strong>: A named storage location for a value.</li>
+<li><strong>Data type</strong>: Defines what kind of data a variable stores (e.g., <code>int</code>, <code>double</code>, <code>String</code>).</li>
+<li><strong>Input</strong>: Data read into a program.</li>
+<li><strong>Output</strong>: Information printed or displayed by a program.</li>
+</ul>
+<h2>5) Mini-lesson</h2>
+<h3>A. Basic Java program structure</h3>
+<pre><code class="language-java">public class HelloUser {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello, Java student!&quot;);
+    }
+}
+</code></pre>
+<p>Key parts:</p>
+<ul>
+<li><code>public class HelloUser</code> -&gt; class name should match filename <code>HelloUser.java</code></li>
+<li><code>main</code> method -&gt; program starts here</li>
+<li><code>System.out.println(...)</code> -&gt; prints text and moves to a new line</li>
+</ul>
+<h3>B. Variables and data types</h3>
+<pre><code class="language-java">int age = 18;
+double gpa = 3.25;
+char gradeLetter = 'A';
+boolean enrolled = true;
+String name = &quot;Alex&quot;;
+</code></pre>
+<p>Choose data types based on what values you need to store.</p>
+<h3>C. Input and output with <code>Scanner</code></h3>
+<pre><code class="language-java">import java.util.Scanner;
+
+public class IntroIO {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print(&quot;Enter your name: &quot;);
+        String name = input.nextLine();
+
+        System.out.print(&quot;Enter your age: &quot;);
+        int age = input.nextInt();
+
+        System.out.println(&quot;Welcome, &quot; + name + &quot;. Next year you will be &quot; + (age + 1) + &quot;.&quot;);
+
+        input.close();
+    }
+}
+</code></pre>
+<h2>6) Worked example</h2>
+<h3>Problem</h3>
+<p>Write a program that reads a student's first name and two quiz scores, then prints the average score.</p>
+<h3>Pseudocode</h3>
+<ol>
+<li>Start program</li>
+<li>Ask for first name</li>
+<li>Ask for quiz1 and quiz2</li>
+<li>Compute average <code>(quiz1 + quiz2) / 2.0</code></li>
+<li>Print name and average</li>
+<li>End program</li>
+</ol>
+<h3>Java solution</h3>
+<pre><code class="language-java">import java.util.Scanner;
+
+public class QuizAverage {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print(&quot;First name: &quot;);
+        String firstName = in.nextLine();
+
+        System.out.print(&quot;Quiz 1 score: &quot;);
+        double quiz1 = in.nextDouble();
+
+        System.out.print(&quot;Quiz 2 score: &quot;);
+        double quiz2 = in.nextDouble();
+
+        double average = (quiz1 + quiz2) / 2.0;
+
+        System.out.printf(&quot;%s, your average is %.2f%n&quot;, firstName, average);
+
+        in.close();
+    }
+}
+</code></pre>
+<h3>Text trace table</h3>
+<p>Given input: <code>Mia</code>, <code>84</code>, <code>92</code></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th style="text-align: right;">quiz1</th>
+<th style="text-align: right;">quiz2</th>
+<th style="text-align: right;">average</th>
+<th>Output note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After reading quiz1</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">not yet set</td>
+<td style="text-align: right;">not yet set</td>
+<td>no final output yet</td>
+</tr>
+<tr>
+<td>After reading quiz2</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">92.0</td>
+<td style="text-align: right;">not yet set</td>
+<td>no final output yet</td>
+</tr>
+<tr>
+<td>After compute</td>
+<td style="text-align: right;">84.0</td>
+<td style="text-align: right;">92.0</td>
+<td style="text-align: right;">88.0</td>
+<td>prints: <code>Mia, your average is 88.00</code></td>
+</tr>
+</tbody>
+</table>
+<h2>7) Guided practice</h2>
+<h3>Practice A (with hints)</h3>
+<p>Create <code>RectangleArea.java</code>:</p>
+<ul>
+<li>Input width and height as <code>double</code></li>
+<li>Compute <code>area = width * height</code></li>
+<li>Print area to two decimal places</li>
+</ul>
+<p>Hint: use <code>System.out.printf("Area: %.2f%n", area);</code></p>
+<h3>Practice B (with partial starter)</h3>
+<pre><code class="language-java">// Complete missing lines marked TODO
+import java.util.Scanner;
+
+public class TemperatureCheck {
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+
+        // TODO: read a temperature in Celsius
+        // TODO: convert to Fahrenheit using F = C * 9 / 5 + 32
+        // TODO: print both values
+
+        kb.close();
+    }
+}
+</code></pre>
+<h2>8) Independent practice</h2>
+<ol>
+<li>Write <code>CircleMetrics.java</code> that reads a radius and outputs diameter, circumference, and area.</li>
+<li>Write <code>PayEstimate.java</code> that reads hourly rate and hours worked and prints estimated pay.</li>
+</ol>
+<p>For each program:</p>
+<ul>
+<li>Include clear prompts</li>
+<li>Use meaningful variable names</li>
+<li>Use formatted output where appropriate</li>
+</ul>
+<h2>9) Troubleshooting / common errors</h2>
+<ul>
+<li><strong><code>class X is public, should be declared in a file named X.java</code></strong></li>
+<li>Fix: filename and public class name must match exactly.</li>
+<li><strong><code>cannot find symbol</code></strong></li>
+<li>Fix: check spelling/case of variable or method names.</li>
+<li><strong><code>InputMismatchException</code></strong></li>
+<li>Fix: entered text when numeric input was expected; retry with numeric value.</li>
+<li><strong>No output appears</strong></li>
+<li>Fix: verify code is running the latest saved file and the expected class.</li>
+</ul>
+<h2>10) Knowledge check (low stakes)</h2>
+<ol>
+<li>Which method starts a Java application?</li>
+<li>Which data type would you use for a decimal value like GPA?</li>
+<li>What does <code>System.out.print</code> do compared with <code>System.out.println</code>?</li>
+<li>Given <code>int x = 7; int y = 2;</code>, what is <code>x / y</code>?</li>
+<li>Why is <code>(x + y) / 2.0</code> often used instead of <code>(x + y) / 2</code> for averages?</li>
+</ol>
+<p>Instructor note: configure immediate feedback in D2L quiz settings.</p>
+<h2>11) Programming assignment (graded)</h2>
+<h3>Assignment title</h3>
+<p><strong>Student Info Summary Program</strong></p>
+<h3>Prompt</h3>
+<p>Write a Java program named <code>StudentSummary.java</code> that:</p>
+<ol>
+<li>Prompts for student name (<code>String</code>)</li>
+<li>Prompts for number of completed credits (<code>int</code>)</li>
+<li>Prompts for current GPA (<code>double</code>)</li>
+<li>Computes estimated remaining credits to <code>60</code> total using <code>remaining = Math.max(0, 60 - completed)</code> so remaining credits never display as negative</li>
+<li>Prints a clear summary with labels and formatted GPA (2 decimals)</li>
+</ol>
+<p>For this assignment, use <code>Math.max(0, 60 - completed)</code> so remaining credits never display as a negative value.</p>
+<h3>Starter-code expectations</h3>
+<p>Students may start from a provided skeleton file that includes:</p>
+<ul>
+<li>class declaration</li>
+<li><code>main</code> method</li>
+<li><code>Scanner</code> setup/close</li>
+<li>TODO markers for prompts, variables, calculation, and output</li>
+</ul>
+<h3>Required submission</h3>
+<ul>
+<li><code>StudentSummary.java</code></li>
+<li>short test log (plain text or doc) with <strong>at least 3 test cases</strong>, including one edge case</li>
+</ul>
+<h3>Testing guidance</h3>
+<p>Use test inputs covering:</p>
+<ul>
+<li>normal case (e.g., completed <code>24</code>, GPA <code>3.10</code>)</li>
+<li>near-completion case (e.g., completed <code>59</code>)</li>
+<li>boundary/edge consideration (e.g., completed <code>60</code>)</li>
+<li>over-completion case (e.g., completed <code>72</code>) and confirm remaining credits prints as <code>0</code></li>
+</ul>
+<p>Expected checks:</p>
+<ul>
+<li>Program compiles with no errors</li>
+<li>Prompts are understandable</li>
+<li>Math is correct</li>
+<li>Output formatting is readable</li>
+</ul>
+<h3>Rubric (20 points)</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Exceeds</th>
+<th>Meets</th>
+<th>Developing</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Program correctness</td>
+<td>All required behaviors + accurate calculations</td>
+<td>Required behaviors mostly correct</td>
+<td>Missing major requirement(s)</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>Java syntax &amp; data type use</td>
+<td>Correct and consistent</td>
+<td>Minor syntax/type issues</td>
+<td>Repeated syntax/type errors</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Input/output clarity</td>
+<td>Clear prompts + well-formatted output</td>
+<td>Understandable prompts/output</td>
+<td>Confusing or incomplete I/O</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Testing evidence</td>
+<td>3+ meaningful tests incl. edge case with results</td>
+<td>3 tests with partial detail</td>
+<td>Fewer than 3 or unclear test evidence</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<h2>12) Reflection</h2>
+<ul>
+<li>What bug or confusion took the most time this week?</li>
+<li>What debugging action was most helpful?</li>
+<li>What is one question you want to ask before the next module?</li>
+</ul>
+<h2>13) Accessibility and alternative format notes</h2>
+<ul>
+<li>Provide this module in D2L HTML and downloadable text format.</li>
+<li>If a video walkthrough is added, include captions and transcript.</li>
+<li>Keep code examples in copyable text (not image-only).</li>
+<li>For tables, retain header row structure for screen readers.</li>
+</ul>
+  </main>
+</body>
+</html>

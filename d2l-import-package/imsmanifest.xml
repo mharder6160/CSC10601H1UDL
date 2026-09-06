@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="D2L_UDL_StarterShell_CSC1060"
+  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+  xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+                      http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+  <metadata>
+    <schema>IMS Content</schema>
+    <schemaversion>1.1.3</schemaversion>
+    <imsmd:lom>
+      <imsmd:general>
+        <imsmd:title>
+          <imsmd:langstring xml:lang="en">CSC1060 UDL Starter-Shell Test Import Package</imsmd:langstring>
+        </imsmd:title>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Brightspace/D2L starter-shell pages for UDL-aligned Computer Science I (Java) course setup.</imsmd:langstring>
+        </imsmd:description>
+      </imsmd:general>
+    </imsmd:lom>
+  </metadata>
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1" structure="hierarchical">
+      <title>CSC1060 UDL Starter Shell</title>
+      <item identifier="ITEM-START-HERE" identifierref="RES-START-HERE">
+        <title>Start Here: Welcome and Course Navigation</title>
+      </item>
+      <item identifier="ITEM-UDL-DESIGN">
+        <title>UDL Course Design</title>
+        <item identifier="ITEM-UDL-BLUEPRINT" identifierref="RES-UDL-BLUEPRINT">
+          <title>UDL Blueprint</title>
+        </item>
+        <item identifier="ITEM-ACCESSIBILITY" identifierref="RES-ACCESSIBILITY">
+          <title>Accessibility and Quality Checklist</title>
+        </item>
+      </item>
+      <item identifier="ITEM-WEEKLY-TEMPLATE" identifierref="RES-WEEKLY-TEMPLATE">
+        <title>Weekly Module Template</title>
+      </item>
+      <item identifier="ITEM-SAMPLE-MODULE" identifierref="RES-SAMPLE-MODULE">
+        <title>Sample Module 1: Early Java Foundations</title>
+      </item>
+      <item identifier="ITEM-ASSESSMENT" identifierref="RES-ASSESSMENT">
+        <title>Assessment and Feedback Guidance</title>
+      </item>
+      <item identifier="ITEM-COURSE-MAP" identifierref="RES-COURSE-MAP">
+        <title>Suggested Course Map</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-START-HERE" type="webcontent" href="pages/start-here-welcome.html">
+      <file href="pages/start-here-welcome.html" />
+    </resource>
+    <resource identifier="RES-UDL-BLUEPRINT" type="webcontent" href="pages/udl-course-blueprint.html">
+      <file href="pages/udl-course-blueprint.html" />
+    </resource>
+    <resource identifier="RES-ACCESSIBILITY" type="webcontent" href="pages/accessibility-quality-checklist.html">
+      <file href="pages/accessibility-quality-checklist.html" />
+    </resource>
+    <resource identifier="RES-WEEKLY-TEMPLATE" type="webcontent" href="pages/weekly-module-template.html">
+      <file href="pages/weekly-module-template.html" />
+    </resource>
+    <resource identifier="RES-SAMPLE-MODULE" type="webcontent" href="pages/sample-module-01-early-java.html">
+      <file href="pages/sample-module-01-early-java.html" />
+    </resource>
+    <resource identifier="RES-ASSESSMENT" type="webcontent" href="pages/assessment-feedback-guidance.html">
+      <file href="pages/assessment-feedback-guidance.html" />
+    </resource>
+    <resource identifier="RES-COURSE-MAP" type="webcontent" href="pages/suggested-course-map.html">
+      <file href="pages/suggested-course-map.html" />
+    </resource>
+  </resources>
+</manifest>
