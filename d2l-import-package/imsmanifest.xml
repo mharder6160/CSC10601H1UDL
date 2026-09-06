@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest identifier="CSC1060_UDL_StarterShell"
   xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd">
+  xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd
+  http://www.adlnet.org/xsd/adlcp_v1p3 http://www.adlnet.org/xsd/adlcp_v1p3.xsd">
   <metadata>
     <schema>IMS Content</schema>
     <schemaversion>1.1.3</schemaversion>
@@ -34,25 +36,25 @@
     </organization>
   </organizations>
   <resources>
-    <resource identifier="RES-START-HERE" type="webcontent" href="start-here.html">
+    <resource identifier="RES-START-HERE" type="webcontent" adlcp:scormType="asset" href="start-here.html">
       <file href="start-here.html"/>
     </resource>
-    <resource identifier="RES-BLUEPRINT" type="webcontent" href="udl-blueprint.html">
+    <resource identifier="RES-BLUEPRINT" type="webcontent" adlcp:scormType="asset" href="udl-blueprint.html">
       <file href="udl-blueprint.html"/>
     </resource>
-    <resource identifier="RES-CHECKLIST" type="webcontent" href="accessibility-checklist.html">
+    <resource identifier="RES-CHECKLIST" type="webcontent" adlcp:scormType="asset" href="accessibility-checklist.html">
       <file href="accessibility-checklist.html"/>
     </resource>
-    <resource identifier="RES-WEEKLY-TEMPLATE" type="webcontent" href="weekly-module-template.html">
+    <resource identifier="RES-WEEKLY-TEMPLATE" type="webcontent" adlcp:scormType="asset" href="weekly-module-template.html">
       <file href="weekly-module-template.html"/>
     </resource>
-    <resource identifier="RES-SAMPLE-MODULE" type="webcontent" href="sample-module-01-early-java.html">
+    <resource identifier="RES-SAMPLE-MODULE" type="webcontent" adlcp:scormType="asset" href="sample-module-01-early-java.html">
       <file href="sample-module-01-early-java.html"/>
     </resource>
-    <resource identifier="RES-ASSESSMENT" type="webcontent" href="assessment-feedback-guidance.html">
+    <resource identifier="RES-ASSESSMENT" type="webcontent" adlcp:scormType="asset" href="assessment-feedback-guidance.html">
       <file href="assessment-feedback-guidance.html"/>
     </resource>
-    <resource identifier="RES-COURSE-MAP" type="webcontent" href="suggested-course-map.html">
+    <resource identifier="RES-COURSE-MAP" type="webcontent" adlcp:scormType="asset" href="suggested-course-map.html">
       <file href="suggested-course-map.html"/>
     </resource>
   </resources>
