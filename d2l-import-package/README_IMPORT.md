@@ -26,6 +26,19 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 - Assessment and feedback guidance
 - Suggested course map
 
+### Expected archive-root files
+
+The generated `D2L_UDL_StarterShell_CSC1060.zip` should contain these files at the archive root:
+
+- `imsmanifest.xml`
+- `start-here.html`
+- `udl-blueprint.html`
+- `accessibility-checklist.html`
+- `weekly-module-template.html`
+- `sample-module-01-early-java.html`
+- `assessment-feedback-guidance.html`
+- `suggested-course-map.html`
+
 ## Instructor confirmation placeholders
 
 Before publishing to students, review all `[INSTRUCTOR CONFIRM]` placeholders for:
