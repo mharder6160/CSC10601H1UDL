@@ -10,6 +10,12 @@ This folder contains a **conservative IMS Content Packaging test/import package*
 4. Choose **Import Components** and upload `D2L_UDL_StarterShell_CSC1060.zip`.
 5. Review imported content before copying or rebuilding anything in a live course.
 
+### Packaging requirement for rebuilds
+
+- The ZIP must be created from **inside** `d2l-import-package/`.
+- `imsmanifest.xml` and the HTML content files must appear at the **archive root**.
+- Do **not** upload or zip a parent folder so that files end up nested under `d2l-import-package/`.
+
 ## Expected imported contents
 
 - Start Here page
