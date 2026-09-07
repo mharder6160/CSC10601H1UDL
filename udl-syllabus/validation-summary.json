@@ -1,0 +1,50 @@
+{
+  "overall_ok": true,
+  "checks": {
+    "original_pdf_unchanged": {
+      "ok": true,
+      "detail": "No working-tree diff for original PDF",
+      "path": "/home/runner/work/CSC10601H1UDL/CSC10601H1UDL/Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java.pdf"
+    },
+    "revised_pdf_non_empty": {
+      "ok": true,
+      "detail": "Revised PDF exists and has non-zero size",
+      "path": "/home/runner/work/CSC10601H1UDL/CSC10601H1UDL/Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java-UDL.pdf",
+      "bytes": 31695
+    },
+    "revised_pdf_extractable_text": {
+      "ok": true,
+      "detail": "Extracted text from revised PDF",
+      "characters": 41166
+    },
+    "major_sections_present": {
+      "ok": true,
+      "detail": "All required major section tokens found",
+      "missing": []
+    },
+    "links_preserved_or_flagged": {
+      "ok": true,
+      "detail": "Named links/resource text preserved",
+      "missing": []
+    },
+    "instructor_confirm_placeholders": {
+      "ok": true,
+      "detail": "At least one instructor confirmation placeholder is present"
+    },
+    "hashes": {
+      "ok": true,
+      "detail": "SHA-256 captured for source and revised PDFs",
+      "original_sha256": "f390310aad8a150675c6be154231a0bbc0c9e01ebc7cf5c12f25f2138b009729",
+      "revised_sha256": "8efe41abd46f56bebcbfaeb863cc369209f88e4883d8acd573e2e11c4e2b9dfa"
+    }
+  },
+  "artifacts": {
+    "original_pdf": "/home/runner/work/CSC10601H1UDL/CSC10601H1UDL/Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java.pdf",
+    "revised_pdf": "/home/runner/work/CSC10601H1UDL/CSC10601H1UDL/Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java-UDL.pdf",
+    "editable_source": "/home/runner/work/CSC10601H1UDL/CSC10601H1UDL/udl-syllabus/Fall-2026-CSC-(PPSC)-1060-1H1-Computer-Science-I_-Java-UDL.md"
+  },
+  "limitations": [
+    "Source appendix is machine-extracted and may contain layout artifacts.",
+    "Named resources in source text may require instructor-confirmed official URLs."
+  ]
+}
