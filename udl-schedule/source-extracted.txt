@@ -1,0 +1,105 @@
+--- PAGE 1 ---
+CSC 1060 1H1 Subject to Change Fall 2026
+WK Mon Tue Wed Thur Fri Sat Sun
+17-Aug 18-Aug 19-Aug 20-Aug 21-Aug 22-Aug 23-Aug
+M1 - Intro; Process Development; Algorithms
+W1- ICA(s) (40)
+Install Assignment (25)
+M1 -Intro Proc Devel Homework Quiz (25)                                           
+24-Aug 25-Aug 26-Aug 27-Aug 28-Aug 29-Aug 30-Aug
+M2 -Intro to Computers, Programs, and Java                                                            
+M3 - Elementary Programming
+W2 - ICA(s) (40)
+M2 -Intro Computer Homework Quiz (25)
+M3 - Elem Program Homework Quiz (25)
+31-Aug 1-Sep 2-Sep 3-Sep 4-Sep 5-Sep 6-Sep
+7-Sep 8-Sep 9-Sep 10-Sep 11-Sep 12-Sep 13-Sep
+No Class - Labor Day M4 - Selections PP (65)
+14-Sep 15-Sep 16-Sep 17-Sep 18-Sep 19-Sep 20-Sep
+M5 -Number Conversions
+W5 -ICA(s) (40)
+M5 -Number Conver Homework Quiz (25)
+21-Sep 22-Sep 23-Sep 24-Sep 25-Sep 26-Sep 27-Sep
+M5 - Math Functions, Characters, Strings
+W6 - ICA(s) (40)
+M5- Math Func, Char, Strings Homework Quiz (25)
+M5 -Math Func, Char, Strings 4 PP (65)
+28-Sep 29-Sep 30-Sep 1-Oct 2-Oct 3-Oct 4-Oct
+M6 - Loops 
+W7 - ICA(s) (40)
+M6 - Loops Homework Quiz (25)
+M6 - Loops  PP (65)
+5-Oct 6-Oct 7-Oct 8-Oct 9-Oct 10-Oct 11-Oct
+M7 - Methods
+W8 - ICA(s) (40)
+M7 - Methods Homework Quiz (25)
+M7 - Methods PP (65)
+All Assignments, Discussion Boards, Programming Projects & Quizzes are due by 5:00 PM on the day they are due unless otherwise specified
+Late work is not accepted!
+All In Class Activities (ICAs) and the Final Exam are due at the end of class.  ICAs cannot be made up!
+3 M3 - Elementary Programming PP (65)
+M4 - Selections Homework Quiz (25)
+M4 - Selections                                               
+W3 - ICA(s) (40)
+Last Day to Drop
+1
+2
+4
+5
+6
+7
+8
+
+--- PAGE 2 ---
+CSC 1060 1H1 Subject to Change Fall 2026
+WK Mon Tue Wed Thur Fri Sat Sun
+12-Oct 13-Oct 14-Oct 15-Oct 16-Oct 17-Oct 18-Oct
+M8 - Single-Dimensional Arrays
+W9 - ICA(s) (40)
+Midterm Project(100)
+M8 - Single-Dimensional Arrays Homework Quiz (25)
+M8 - Single-Dimensional Arrays PP (65)
+19-Oct 20-Oct 21-Oct 22-Oct 23-Oct 24-Oct 25-Oct
+M9 -Multidimensional Arrays
+W10 - ICA(s) (40)
+M9 - Multidimensional Arrays Homework Quiz (25)
+M9 - Multidimensional Arrays PP (65)
+26-Oct 27-Oct 28-Oct 29-Oct 30-Oct 31-Oct 1-Nov
+M10 - Objects and Classes 
+W11 - ICA(s) (40)
+M10 - Objects and Classes Homework Quiz (25)
+M10 - Objects and Classes PP (65)
+2-Nov 3-Nov 4-Nov 5-Nov 6-Nov 7-Nov 8-Nov
+M11 - Object-Oriented Thinking
+W12 - ICA(s) (40)
+M11 - Object-Oriented Thinking Homework Quiz (25)
+M11 - Object-Oriented Thinking PP (65)
+9-Nov 10-Nov 11-Nov 12-Nov 13-Nov 14-Nov 15-Nov
+M12 - Exception Handling and Text I/O 
+W13 - ICA(s) (40)
+Final Project Description (25)
+M12 - Excep Handl and Text I/O Homework Quiz (25)
+M12 - Excep Hand and Text I/O  PP (65)
+16-Nov 17-Nov 18-Nov 19-Nov 20-Nov 21-Nov 22-Nov
+M13 - Recursion
+W14 - ICA(s) (40)
+M13- Recursion Homework Quiz (25)
+M13 - Recursion PP (65)
+23-Nov 24-Nov 25-Nov 26-Nov 27-Nov 28-Nov 29-Nov
+Final Exam Preparation / Mock Final (25)
+30-Nov 1-Dec 2-Dec 3-Dec 4-Dec 5-Dec 6-Dec
+Final Exam (100) - IN CLASS PAPER Final Project (240)
+All Assignments, Discussion Boards, Programming Projects & Quizzes are due by 11:59 PM MT on the day they are due unless otherwise specified
+Late work is NOT accepted!
+All In Class Activities (ICAs) and the Final Exam are due at the end of class.  ICAs cannot be made up!
+No Classes - Thanksgiving
+16
+15
+Last Day To Withdraw
+9
+10
+11
+12
+14
+13
+
