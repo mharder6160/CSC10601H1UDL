@@ -1,0 +1,22 @@
+{
+  "original_zip_sha256": "94b048f6796e65af95eb7fc1434d00b8e6264cd0b76bf0977b525d14897575b4",
+  "revised_zip_sha256": "3e3a77990b02bd316e6033f66cc379f7b4ed6e433f9524dfe74f73ae3d15b162",
+  "revised_zip_opens": true,
+  "file_list_matches_original": true,
+  "required_metadata_present": true,
+  "manifest_local_reference_count_original": 122,
+  "manifest_local_reference_count_revised": 122,
+  "manifest_local_missing_count_original": 76,
+  "manifest_local_missing_count_revised": 76,
+  "manifest_local_missing_not_worse": true,
+  "manifest_local_new_missing_refs": [],
+  "xml_well_formed": true,
+  "xml_errors": [],
+  "html_fragments_parseable": true,
+  "html_errors": [],
+  "secret_scan_passed": true,
+  "secret_findings": [],
+  "transformation_summary_present": true,
+  "transformation_summary_has_changed_files": true,
+  "overall_pass": true
+}

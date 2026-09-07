@@ -1,0 +1,56 @@
+{
+  "source_original_zip": "D2LExport_662798_S_PPCC_CSC10601H1_202720_20269657.zip",
+  "revised_zip": "D2L_CSC1060_UDL_Revised_From_Original.zip",
+  "original_zip_sha256_before": "94b048f6796e65af95eb7fc1434d00b8e6264cd0b76bf0977b525d14897575b4",
+  "original_zip_sha256_after": "94b048f6796e65af95eb7fc1434d00b8e6264cd0b76bf0977b525d14897575b4",
+  "revised_zip_sha256": "3e3a77990b02bd316e6033f66cc379f7b4ed6e433f9524dfe74f73ae3d15b162",
+  "original_unchanged": true,
+  "changed_files": [
+    {
+      "file": "news_d2l.xml",
+      "change_categories": {
+        "heading_structure": 13,
+        "purpose_objective_sections": 13,
+        "plain_language_chunking": 13,
+        "navigation_next_step": 13,
+        "multiple_means": 13,
+        "instructor_confirm_placeholders": 13,
+        "descriptive_links": 2,
+        "image_alt_text": 2,
+        "table_accessibility": 0
+      }
+    },
+    {
+      "file": "dropbox_d2l.xml",
+      "change_categories": {
+        "heading_structure": 14,
+        "purpose_objective_sections": 14,
+        "plain_language_chunking": 14,
+        "navigation_next_step": 14,
+        "multiple_means": 14,
+        "instructor_confirm_placeholders": 14,
+        "descriptive_links": 3,
+        "image_alt_text": 0,
+        "table_accessibility": 0
+      }
+    },
+    {
+      "file": "syllabus_d2l.xml",
+      "change_categories": {
+        "heading_structure": 1,
+        "purpose_objective_sections": 1,
+        "plain_language_chunking": 1,
+        "navigation_next_step": 1,
+        "multiple_means": 1,
+        "instructor_confirm_placeholders": 1,
+        "descriptive_links": 0,
+        "image_alt_text": 0,
+        "table_accessibility": 0
+      }
+    }
+  ],
+  "limitations": [
+    "Automated UDL changes were applied only to learner-facing HTML embedded in news, dropbox instructions, and syllabus description.",
+    "Institution-specific Brightspace behavior can vary and must be verified with a test import shell."
+  ]
+}
