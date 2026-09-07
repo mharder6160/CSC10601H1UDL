@@ -6,7 +6,7 @@ import html
 import json
 import re
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
+from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 import xml.etree.ElementTree as ET
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -21,6 +21,7 @@ TARGET_XML_FILES = ("news_d2l.xml", "dropbox_d2l.xml", "syllabus_d2l.xml")
 URL_TEXT_RE = re.compile(r"<a(?P<attrs>[^>]*)>(?P<text>.*?)</a>", re.IGNORECASE | re.DOTALL)
 IMG_RE = re.compile(r"<img(?P<attrs>[^>]*)>", re.IGNORECASE | re.DOTALL)
 TABLE_RE = re.compile(r"<table(?P<attrs>[^>]*)>", re.IGNORECASE)
+TABLE_BLOCK_RE = re.compile(r"<table(?P<attrs>[^>]*)>(?P<body>.*?)</table>", re.IGNORECASE | re.DOTALL)
 
 
 def sha256_file(path: Path) -> str:
@@ -33,6 +34,47 @@ def sha256_file(path: Path) -> str:
 
 def _strip_tags(raw: str) -> str:
     return re.sub(r"<[^>]+>", "", raw)
+
+
+def _has_heading(fragment: str) -> bool:
+    return re.search(r"<h[1-3]\b", fragment, flags=re.IGNORECASE) is not None
+
+
+def _normalize_known_typos(fragment: str) -> tuple[str, int]:
+    typo_map = {
+        "drooping": "dropping",
+        "Liagn": "Liang",
+        "TesDoWhile.java": "TestDoWhile.java",
+        "TestBreak,java": "TestBreak.java",
+        "Mutliple": "Multiple",
+    }
+    changes = 0
+    updated = fragment
+    for wrong, correct in typo_map.items():
+        count = updated.count(wrong)
+        updated = updated.replace(wrong, correct)
+        changes += count
+    return updated, changes
+
+
+def _align_year_to_due_date(fragment: str, due_date: str) -> tuple[str, int]:
+    match = re.match(r"(\d{4})-", due_date or "")
+    if not match:
+        return fragment, 0
+    due_year = match.group(1)
+
+    def _replace_year(m: re.Match[str]) -> str:
+        month = int(m.group(1))
+        day = int(m.group(2))
+        if not (1 <= month <= 12 and 1 <= day <= 31):
+            return m.group(0)
+        return f"{m.group(1)}/{m.group(2)}/{due_year}"
+
+    updated, count = re.subn(r"\b(1[0-2]|0?[1-9])/(3[01]|[12][0-9]|0?[1-9])/2025\b", _replace_year, fragment)
+    updated2 = updated.replace("10/27/8/2025", f"10/27/{due_year}")
+    if updated2 != updated:
+        count += 1
+    return updated2, count
 
 
 def _host_text(href: str) -> str:
@@ -52,13 +94,20 @@ def improve_links(html_fragment: str) -> tuple[str, int]:
         href = href_m.group(1).strip() if href_m else ""
         text_clean = _strip_tags(html.unescape(text)).strip()
         new_text = text
+        if "<" in text and ">" in text:
+            return m.group(0)
+        if not href:
+            if not text_clean:
+                changed += 1
+                return "<span>Referenced resource</span>"
+            return m.group(0)
         if not text_clean:
             new_text = f"Open {_host_text(href)}"
         elif href and text_clean.lower() == href.lower():
             new_text = f"Open {_host_text(href)}"
         if new_text != text:
             changed += 1
-            return f"<a{attrs}>{html.escape(new_text)}</a>"
+            return f"<a{attrs}>{new_text}</a>"
         return m.group(0)
 
     return URL_TEXT_RE.sub(_replace, html_fragment), changed
@@ -73,14 +122,10 @@ def improve_images(html_fragment: str) -> tuple[str, int]:
         if re.search(r"\balt\s*=", attrs, flags=re.IGNORECASE):
             return m.group(0)
         title_m = re.search(r'title\s*=\s*["\']([^"\']+)["\']', attrs, flags=re.IGNORECASE)
-        src_m = re.search(r'src\s*=\s*["\']([^"\']+)["\']', attrs, flags=re.IGNORECASE)
         if title_m:
             alt_text = title_m.group(1).strip()
-        elif src_m:
-            src_name = Path(src_m.group(1)).name
-            alt_text = "Decorative image" if src_name.startswith("image_") else f"Image: {src_name}"
         else:
-            alt_text = "Decorative image"
+            return m.group(0)
         changed += 1
         return f"<img{attrs} alt=\"{html.escape(alt_text)}\">"
 
@@ -93,18 +138,16 @@ def improve_tables(html_fragment: str) -> tuple[str, int]:
     def _replace_table(m: re.Match[str]) -> str:
         nonlocal changed
         attrs = m.group("attrs")
+        body = m.group("body")
+        if re.search(r"<caption\b", body, flags=re.IGNORECASE):
+            return m.group(0)
         changed += 1
-        return f"<table{attrs}><caption>[INSTRUCTOR CONFIRM] Add a short table summary.</caption>"
+        return (
+            f"<table{attrs}><caption>[INSTRUCTOR CONFIRM] Add a short table summary.</caption>"
+            f"{body}</table>"
+        )
 
-    if "<table" in html_fragment.lower() and "<caption" not in html_fragment.lower():
-        html_fragment = TABLE_RE.sub(_replace_table, html_fragment, count=1)
-
-    th_count = len(re.findall(r"<th\b", html_fragment, flags=re.IGNORECASE))
-    if th_count == 0 and "<table" in html_fragment.lower():
-        html_fragment, n = re.subn(r"<td\b", "<th scope=\"col\"", html_fragment, count=1, flags=re.IGNORECASE)
-        if n:
-            html_fragment, _ = re.subn(r"</td>", "</th>", html_fragment, count=1, flags=re.IGNORECASE)
-            changed += 1
+    html_fragment = TABLE_BLOCK_RE.sub(_replace_table, html_fragment)
 
     return html_fragment, changed
 
@@ -122,6 +165,7 @@ def add_news_udl_block(headline: str) -> str:
         "<h2>Help</h2>"
         "<p>If anything is unclear, contact your instructor through Brightspace messages. "
         "[INSTRUCTOR CONFIRM: preferred contact method and response time]</p>"
+        "<p>[INSTRUCTOR CONFIRM] Review any announcement images and add descriptive alt text where needed.</p>"
     )
 
 
@@ -130,7 +174,7 @@ def wrap_dropbox_udl(folder_name: str, points: str, allowed_exts: list[str], exi
     points_text = html.escape(points)
     ext_text = ", ".join(sorted(allowed_exts)) if allowed_exts else "See assignment details"
     return (
-        f"<h1>{safe_name}</h1>"
+        f"<h2>{safe_name}</h2>"
         "<h2>Purpose</h2>"
         f"<p>This submission folder collects your work for <strong>{safe_name}</strong>.</p>"
         "<h2>Instructions</h2>"
@@ -171,7 +215,10 @@ def apply_shared_improvements(fragment: str) -> tuple[str, dict[str, int]]:
         "descriptive_links": 0,
         "image_alt_text": 0,
         "table_accessibility": 0,
+        "plain_language_edits": 0,
     }
+    fragment, typo_changes = _normalize_known_typos(fragment)
+    categories["plain_language_edits"] += typo_changes
     fragment, link_changes = improve_links(fragment)
     categories["descriptive_links"] += link_changes
     fragment, img_changes = improve_images(fragment)
@@ -193,6 +240,7 @@ def transform_news(xml_text: str) -> tuple[str, dict[str, int]]:
         "descriptive_links": 0,
         "image_alt_text": 0,
         "table_accessibility": 0,
+        "plain_language_edits": 0,
     }
     for item in root.findall("item"):
         content = item.find("content")
@@ -200,7 +248,8 @@ def transform_news(xml_text: str) -> tuple[str, dict[str, int]]:
             continue
         original = content.text or ""
         updated, shared = apply_shared_improvements(original)
-        updated = f"<h1>{html.escape((item.findtext('headline') or 'Announcement').strip())}</h1>" + updated
+        if not _has_heading(updated):
+            updated = f"<h1>{html.escape((item.findtext('headline') or 'Announcement').strip())}</h1>" + updated
         updated += add_news_udl_block(item.findtext("headline") or "Announcement")
         content.text = updated
         counts["heading_structure"] += 1
@@ -226,6 +275,7 @@ def transform_dropbox(xml_text: str) -> tuple[str, dict[str, int]]:
         "descriptive_links": 0,
         "image_alt_text": 0,
         "table_accessibility": 0,
+        "plain_language_edits": 0,
     }
     for folder in root.findall("folder"):
         instructions = folder.find("instructions")
@@ -236,6 +286,8 @@ def transform_dropbox(xml_text: str) -> tuple[str, dict[str, int]]:
             continue
         original = text_node.text or ""
         updated, shared = apply_shared_improvements(original)
+        updated, year_changes = _align_year_to_due_date(updated, folder.findtext("date_due", ""))
+        shared["plain_language_edits"] += year_changes
         allowed_exts = [ext.attrib.get("value", "") for ext in folder.findall("allowable_file_type_custom_list/extension")]
         points = folder.attrib.get("out_of", "")
         if "." in points:
@@ -264,6 +316,7 @@ def transform_syllabus(xml_text: str) -> tuple[str, dict[str, int]]:
         "descriptive_links": 0,
         "image_alt_text": 0,
         "table_accessibility": 0,
+        "plain_language_edits": 0,
     }
     desc = root.attrib.get("description", "")
     updated, shared = apply_shared_improvements(desc)
@@ -314,8 +367,17 @@ def main() -> None:
                 data = transformed_xml.get(info.filename)
                 if data is None:
                     data = zin.read(info.filename)
-                preserved = info
+                preserved = ZipInfo(filename=info.filename, date_time=info.date_time)
                 preserved.compress_type = ZIP_DEFLATED
+                preserved.comment = info.comment
+                preserved.extra = info.extra
+                preserved.create_system = info.create_system
+                preserved.create_version = info.create_version
+                preserved.extract_version = info.extract_version
+                preserved.flag_bits = info.flag_bits
+                preserved.volume = info.volume
+                preserved.internal_attr = info.internal_attr
+                preserved.external_attr = info.external_attr
                 zout.writestr(preserved, data)
 
     original_hash_after = sha256_file(ORIGINAL_ZIP)

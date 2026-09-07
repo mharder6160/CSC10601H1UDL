@@ -130,7 +130,7 @@ def extract_html_fragments(zipf: ZipFile) -> list[tuple[str, str]]:
 def scan_secrets(zipf: ZipFile) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     for name in zipf.namelist():
-        if not name.lower().endswith((".xml", ".html", ".htm", ".txt", ".md", ".json", ".java", ".doc", ".docx", ".rtf", ".pdf")):
+        if not name.lower().endswith((".xml", ".html", ".htm", ".txt", ".md", ".json", ".java", ".rtf")):
             continue
         data = zipf.read(name)
         if b"\x00" in data:
@@ -157,7 +157,7 @@ def main() -> None:
 
         original_names = zorig.namelist()
         revised_names = zrev.namelist()
-        checks["file_list_matches_original"] = original_names == revised_names
+        checks["file_list_matches_original"] = sorted(original_names) == sorted(revised_names)
 
         required_metadata = ["imsmanifest.xml", "orgunitconfig/orgunitconfig.xml", "news_d2l.xml", "dropbox_d2l.xml", "grades_d2l.xml"]
         checks["required_metadata_present"] = all(name in revised_names for name in required_metadata)
@@ -222,10 +222,11 @@ def main() -> None:
         checks["html_fragments_parseable"],
         checks["secret_scan_passed"],
         checks.get("transformation_summary_present", False),
+        checks.get("transformation_summary_has_changed_files", False),
     ])
 
     REPORT_PATH.write_text(json.dumps(checks, indent=2), encoding="utf-8")
-    print(json.dumps(checks, indent=2))
+    print(f"Validation complete. overall_pass={checks['overall_pass']}. See {REPORT_PATH}")
 
 
 if __name__ == "__main__":

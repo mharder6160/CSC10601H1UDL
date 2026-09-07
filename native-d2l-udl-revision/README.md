@@ -26,7 +26,7 @@ Applied changes include:
 - chunked plain-language guidance;
 - descriptive link text where possible;
 - inferred image alt text when missing;
-- table caption/header improvements when tables exist;
+- table caption prompts when tables exist (header-cell review still instructor-confirmed);
 - instructor placeholders: `[INSTRUCTOR CONFIRM]` for institution-specific details.
 
 Original substantive content remains present; UDL support text was added around existing content.
@@ -36,6 +36,7 @@ Review all `[INSTRUCTOR CONFIRM]` placeholders before publishing, especially for
 - contact methods and response times
 - office hours and tutoring/support channels
 - any local policy clarifications
+- any announcement images that still need human-reviewed alt text/context
 
 ## Validation outputs
 Validation artifacts are in `native-d2l-udl-revision/staging/`:
