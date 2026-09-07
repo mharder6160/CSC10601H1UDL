@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Module 1: Early Java Foundations</title>
+</head>
+<body>
+  <main>
+    <h1>Sample Module 1: Early Java Foundations</h1>
+
+    <p><strong>Suggested placement:</strong> Early term, after course orientation</p>
+    <p><strong>Estimated Time:</strong> 6 to 8 hours</p>
+
+    <h2>Overview</h2>
+    <p>This module introduces the structure of a Java program and core building blocks such as variables, data types, and console input and output. Students write and test simple programs that read user input, perform calculations, and print formatted results.</p>
+
+    <h2>Learning outcomes</h2>
+    <ol>
+      <li>Identify the required structure of a basic Java class with a <code>main</code> method.</li>
+      <li>Declare and initialize variables using appropriate primitive data types.</li>
+      <li>Accept keyboard input and produce clear output.</li>
+      <li>Trace simple expressions and explain resulting values.</li>
+    </ol>
+
+    <h2>Materials</h2>
+    <ul>
+      <li>Assigned reading on basic syntax, variables, and input/output: [INSTRUCTOR CONFIRM]</li>
+      <li>Existing introductory programming slide deck: [INSTRUCTOR CONFIRM]</li>
+      <li>IDE and JDK setup from Start Here</li>
+    </ul>
+
+    <h2>Vocabulary</h2>
+    <ul>
+      <li><strong>Class:</strong> A blueprint for creating objects and a container for methods in introductory programs.</li>
+      <li><strong>Method:</strong> A block of code that performs a task.</li>
+      <li><strong>Main method:</strong> The entry point where Java starts program execution.</li>
+      <li><strong>Variable:</strong> A named storage location for a value.</li>
+      <li><strong>Data type:</strong> The kind of data a variable stores.</li>
+      <li><strong>Input:</strong> Data read into a program.</li>
+      <li><strong>Output:</strong> Information printed or displayed by a program.</li>
+    </ul>
+
+    <h2>Mini-lesson</h2>
+
+    <h3>Basic Java program structure</h3>
+    <pre><code>public class HelloUser {
+    public static void main(String[] args) {
+        System.out.println("Hello, Java student!");
+    }
+}</code></pre>
+    <ul>
+      <li><code>public class HelloUser</code>: the class name should match <code>HelloUser.java</code>.</li>
+      <li><code>main</code>: the program starts here.</li>
+      <li><code>System.out.println(...)</code>: prints text and moves to a new line.</li>
+    </ul>
+
+    <h3>Variables and data types</h3>
+    <pre><code>int age = 18;
+double gpa = 3.25;
+char gradeLetter = 'A';
+boolean enrolled = true;
+String name = "Alex";</code></pre>
+    <p>Choose data types based on the values the program needs to store.</p>
+
+    <h3>Input and output with Scanner</h3>
+    <pre><code>import java.util.Scanner;
+
+public class IntroIO {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = input.nextInt();
+
+        System.out.println("Welcome, " + name + ". Next year you will be " + (age + 1) + ".");
+
+        input.close();
+    }
+}</code></pre>
+
+    <h2>Worked example</h2>
+
+    <h3>Problem</h3>
+    <p>Write a program that reads a student's first name and two quiz scores, then prints the average score.</p>
+
+    <h3>Pseudocode</h3>
+    <ol>
+      <li>Start program</li>
+      <li>Ask for first name</li>
+      <li>Ask for quiz scores</li>
+      <li>Compute average using <code>(quiz1 + quiz2) / 2.0</code></li>
+      <li>Print name and average</li>
+      <li>End program</li>
+    </ol>
+
+    <h3>Java solution</h3>
+    <pre><code>import java.util.Scanner;
+
+public class QuizAverage {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("First name: ");
+        String firstName = in.nextLine();
+
+        System.out.print("Quiz 1 score: ");
+        double quiz1 = in.nextDouble();
+
+        System.out.print("Quiz 2 score: ");
+        double quiz2 = in.nextDouble();
+
+        double average = (quiz1 + quiz2) / 2.0;
+
+        System.out.printf("%s, your average is %.2f%n", firstName, average);
+
+        in.close();
+    }
+}</code></pre>
+
+    <h3>Trace table</h3>
+    <table>
+      <caption>Sample trace with input Mia, 84, 92</caption>
+      <thead>
+        <tr>
+          <th scope="col">Step</th>
+          <th scope="col">quiz1</th>
+          <th scope="col">quiz2</th>
+          <th scope="col">average</th>
+          <th scope="col">Output note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">After reading quiz1</th>
+          <td>84.0</td>
+          <td>not yet set</td>
+          <td>not yet set</td>
+          <td>no final output yet</td>
+        </tr>
+        <tr>
+          <th scope="row">After reading quiz2</th>
+          <td>84.0</td>
+          <td>92.0</td>
+          <td>not yet set</td>
+          <td>no final output yet</td>
+        </tr>
+        <tr>
+          <th scope="row">After compute</th>
+          <td>84.0</td>
+          <td>92.0</td>
+          <td>88.0</td>
+          <td>average is stored as 88.0 but no final output is printed yet</td>
+        </tr>
+        <tr>
+          <th scope="row">After print</th>
+          <td>84.0</td>
+          <td>92.0</td>
+          <td>88.0</td>
+          <td>prints Mia, your average is 88.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Guided practice</h2>
+    <h3>Practice A</h3>
+    <ul>
+      <li>Create <code>RectangleArea.java</code>.</li>
+      <li>Input width and height as <code>double</code> values.</li>
+      <li>Compute and print area to two decimal places.</li>
+    </ul>
+    <p>Hint: use <code>System.out.printf("Area: %.2f%n", area);</code></p>
+
+    <h3>Practice B</h3>
+    <pre><code>import java.util.Scanner;
+
+public class TemperatureCheck {
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+
+        // TODO: read a temperature in Celsius
+        // TODO: convert to Fahrenheit using F = C * 9 / 5 + 32
+        // TODO: print both values
+
+        kb.close();
+    }
+}</code></pre>
+
+    <h2>Independent practice</h2>
+    <ol>
+      <li>Write <code>CircleMetrics.java</code> to read a radius and output diameter, circumference, and area.</li>
+      <li>Write <code>PayEstimate.java</code> to read hourly rate and hours worked and print estimated pay.</li>
+    </ol>
+
+    <h2>Troubleshooting and common errors</h2>
+    <ul>
+      <li><strong><code>class X is public, should be declared in a file named X.java</code></strong>: filename and public class name must match exactly.</li>
+      <li><strong><code>cannot find symbol</code></strong>: check spelling and case of variable or method names.</li>
+      <li><strong><code>InputMismatchException</code></strong>: text was entered when numeric input was expected.</li>
+      <li><strong>No output appears</strong>: verify the latest saved file and expected class are running.</li>
+    </ul>
+
+    <h2>Knowledge check</h2>
+    <ol>
+      <li>Which method starts a Java application?</li>
+      <li>Which data type would you use for a decimal value such as GPA?</li>
+      <li>What does <code>System.out.print</code> do compared with <code>System.out.println</code>?</li>
+      <li>Given <code>int x = 7; int y = 2;</code>, what is <code>x / y</code>?</li>
+      <li>Why is <code>(x + y) / 2.0</code> often used instead of <code>(x + y) / 2</code> for averages?</li>
+    </ol>
+
+    <h2>Programming assignment</h2>
+    <h3>Student Info Summary Program</h3>
+    <p>Write <code>StudentSummary.java</code> that reads student name, completed credits, and GPA; computes remaining credits to 60 total using <code>Math.max(0, 60 - completed)</code>; and prints a clear summary with formatted GPA.</p>
+
+    <h3>Required submission</h3>
+    <ul>
+      <li><code>StudentSummary.java</code></li>
+      <li>Short test log with at least three test cases, including one edge case</li>
+    </ul>
+
+    <h3>Testing guidance</h3>
+    <ul>
+      <li>Normal case, for example completed 24 and GPA 3.10</li>
+      <li>Near-completion case, for example completed 59</li>
+      <li>Boundary case, for example completed 60</li>
+      <li>Over-completion case, for example completed 72, and confirm remaining credits display as 0</li>
+    </ul>
+
+    <h3>Rubric snapshot</h3>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Criteria</th>
+          <th scope="col">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Program correctness</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Java syntax and data type use</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Input and output clarity</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Testing evidence</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Reflection</h2>
+    <ul>
+      <li>What bug or confusion took the most time this week?</li>
+      <li>What debugging action was most helpful?</li>
+      <li>What is one question to ask before the next module?</li>
+    </ul>
+
+    <h2>Accessibility and alternative format notes</h2>
+    <ul>
+      <li>Provide the module in D2L HTML and a downloadable text format.</li>
+      <li>If a video walkthrough is added, include captions and transcript.</li>
+      <li>Keep code examples in copyable text, not image-only format.</li>
+      <li>Retain header row structure for tables.</li>
+    </ul>
+  </main>
+</body>
+</html>
